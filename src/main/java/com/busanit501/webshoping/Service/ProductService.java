@@ -6,11 +6,13 @@ import com.busanit501.webshoping.RequestDto.ProductRequestDto; // 요청 DTO imp
 import com.busanit501.webshoping.ResponseDto.ProductResponseDto; // 응답 DTO import
 import jakarta.transaction.Transactional; // 트랜잭션 처리를 위한 어노테이션
 import lombok.RequiredArgsConstructor; // final 필드에 대한 생성자를 자동으로 만들어줘.
+import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service; // 이 클래스가 서비스 계층임을 명시
 
 import java.util.List;
 import java.util.stream.Collectors; // 리스트 스트림 처리용
 
+@Log4j2
 @Service // "나 서비스 계층이야! 비즈니스 로직은 내가 다 할게!" 라고 스프링에게 알려줘.
 @RequiredArgsConstructor // final이 붙은 필드(productRepository)를 파라미터로 받는 생성자를 롬복이 자동으로 만들어줘.
 @Transactional // 메서드가 실행되는 동안 데이터베이스 작업이 하나의 트랜잭션으로 묶이도록 해줘.
@@ -28,6 +30,7 @@ public class ProductService {
         product.setStock(requestDto.getStock());
         product.setProductTag(requestDto.getProductTag());
 
+        log.info("공동 작업 테스트중");
         // 리포지토리를 통해 DB에 저장
         Product savedProduct = productRepository.save(product); // save()는 저장 후 저장된 엔티티를 반환해줘.
 
