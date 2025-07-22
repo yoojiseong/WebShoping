@@ -27,9 +27,9 @@ public class OrderItem{
     // 양방향 관계 설정: 연관관계의 주인 (FK 가짐)
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id")
-    private Orders order;
+    private Order order;
 
-    private Long product_id; // camelCase
+    private Long productid; // camelCase
 
 
     private int quantity;
@@ -38,7 +38,7 @@ public class OrderItem{
     private BigDecimal price;
 
 
-    public void setOrder(Orders order) {
+    public void setOrder(Order order) {
         this.order = order;
 
         // 양방향이니까 Order에도 나(this)를 추가해줘야 함
