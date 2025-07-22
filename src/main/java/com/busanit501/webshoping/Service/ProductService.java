@@ -31,6 +31,7 @@ public class ProductService {
         product.setProductTag(requestDto.getProductTag());
 
         log.info("공동 작업 테스트중");
+        log.info("공동 작업 테스트중(민주현)");
         // 리포지토리를 통해 DB에 저장
         Product savedProduct = productRepository.save(product); // save()는 저장 후 저장된 엔티티를 반환해줘.
 
