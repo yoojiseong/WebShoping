@@ -17,17 +17,17 @@ import java.util.List;
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "order_id") // PK
-    private Long orderid;
+    @Column(name = "orderId") // PK
+    private Long orderId;
 
-    @Column(name = "member_id", nullable = false)
-    private Long memberid;
+    @Column(name = "memberId", nullable = false)
+    private Long memberId;
 
-    @Column(name = "order_date")
+    @Column(name = "orderdate")
     private LocalDateTime orderDate;
 
     @Column(name = "status")
-    private Boolean status;
+    private Boolean status = false;
 
     // 양방향 연관관계 설정 - 비주인
     @Builder.Default
